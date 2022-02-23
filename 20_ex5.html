@@ -5,19 +5,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bootstrap Template</title>
+    <title>Exercise-5</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
         integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <style>
         .wrap {
             width: 800px;
             height: 500px;
-            overflow: hidden ;
+            margin: auto;
+            overflow: hidden;
             position: relative;
         }
 
         ul.train {
             width: 500%;
+            /* transform: translateX(-800px); */
         }
 
         img {
@@ -25,45 +27,48 @@
             height: 100%;
             object-fit: cover;
         }
+
         .slider-dot {
             position: absolute;
             width: 100%;
             bottom: 0;
             justify-content: center;
         }
+
         .slider-dot li {
             width: 50px;
             height: 10px;
-            border-radius: 20%;
-            background-color: rgba(255, 255, 255, 0.548);
+            border-radius: 25px;
+            background-color: #ffffff8c;
             /* border: 1px solid #000; */
             margin: 0 6px 0;
-            
+
         }
-        .slider-dot li:nth-child(1) {
+
+        /* .slider-dot li:nth-child(1) {
             background-color: #fff;
-        }
+        } */
     </style>
 
 </head>
 
 <body>
-        <div class="wrap">
-            <ul class="ul list-unstyled d-flex train">
-                <li><img src="./imgs/slide1.jpg" alt=""></li>
-                <li><img src="./imgs/slide2.jpg" alt=""></li>
-                <li><img src="./imgs/slide3.jpg" alt=""></li>
-                <li><img src="./imgs/slide4.jpg" alt=""></li>
-                <li><img src="./imgs/slide5.jpg" alt=""></li>
-            </ul>
-            <ul class="ul list-unstyled d-flex slider-dot">
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
-        </div>
+    <div class="wrap">
+        <ul class="ul list-unstyled d-flex train">
+            <li><img src="./imgs/slide1.jpg" alt=""></li>
+            <li><img src="./imgs/slide2.jpg" alt=""></li>
+            <li><img src="./imgs/slide3.jpg" alt=""></li>
+            <li><img src="./imgs/slide4.jpg" alt=""></li>
+            <li><img src="./imgs/slide5.jpg" alt=""></li>
+        </ul>
+        <ul class="ul list-unstyled d-flex slider-dot">
+            <li id="li1"></li>
+            <li id="li2"></li>
+            <li id="li3"></li>
+            <li id="li4"></li>
+            <li id="li5"></li>
+        </ul>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -75,13 +80,30 @@
         integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
         crossorigin="anonymous"></script>
 
-        <script>
-            $('slider-dot li').mouseenter(function(){
-                console.log('hi', $(this).index())
+    <script>
+
+        let num = 0;
+
+        $('.slider-dot li').click(function () {
+            console.log('hi')
+            $('.slider-dot li').css('background', '#ffffff8c')
+
+        })
+
+        $('.slider-dot li').click(function () {
+            console.log('hi', $(this))
+            $(this).css('background', 'white')
+
+        })
 
 
-            })
-        </script>
+        $('.slider-dot li').click(function () {
+            // console.log($(this).index());
+            num=$(this).index();
+            console.log(num);
+            $('.train').css('transform', `translateX(${num * -800}px)`)
+        })
+    </script>
 
 
 
