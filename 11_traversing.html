@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traversing-eq()</title>
+</head>
+<body>
+    <main class="main">
+        <div class="wrap">
+            <div class="box">box01</div>
+            <div class="box">box02</div>
+            <div class="box">box03</div>
+            <div class="box">box04</div>
+            <div class="box">box05</div>
+            <div class="box">box06</div>
+        </div>
+    </main>
+    <script src="/js/jquery-3.6.0.min.js"></script>
+    <script>
+        // $('.box').eq(0).css('background','pink');
+        // $('.box:eq(0)').css('background','pink');
+        $('.box').css('background','beige').even().css('background','pink').eq(2).css('background','lightblue');
+    </script>
+</body>
+</html>

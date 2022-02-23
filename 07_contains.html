@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contains</title>
+
+</head>
+
+<body>
+    <div class="name">Alex Hsu</div>
+    <div class="name">LeBron James</div>
+    <div class="name">Alex Hsueh</div>
+    <div class="name">James Harden</div>
+
+    <script src="/js/jquery-3.6.0.min.js"></script>
+    <script>
+        $(".name:contains('Alex')").css('background','pink');
+        $(".name:contains('James')").css('background','lightblue');
+    </script>
+</body>
+
+</html>
