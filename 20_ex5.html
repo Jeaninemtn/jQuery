@@ -151,18 +151,23 @@
             $('.train').css('transform', `translateX(${num * -800}px)`)
         })
 
+
         $('.arrow-right').click(function(){
             page++;
             console.log('page', page * -800);
-        
-           
+            $('.train').css('transform', `translateX(${page * -800}px)`)
+          
         })
 
         // $('.arrow-left').click(function(){
-        //     num=$(this).index();
-        //     console.log(num);
-        //     $('.train').css('transform', `translateX(${num * 400}px)`)
+        //     page++;
+        //     console.log('page', page * 800);
+        //     $('.train').css('transform', `translateX(${page * 800}px)`)
+        
+           
         // })
+
+        
 
 
 
