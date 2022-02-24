@@ -54,11 +54,26 @@
 
     <script>
 
+    
+        $('input[type="checkbox"]').click(function () {
+            console.log('hi')
+            $('input[type="checkbox"]').closest('tr').css('background', 'white')
+
+        })
+
         $('input[type="checkbox"]').click(function () {
             console.log('hello', $(this))
             $(this).closest('tr').css('background', 'lightblue')
             // $(this).parent().parent().css('background', 'lightblue')
         })
+
+        
+
+        // $('input[type="checkbox"]').dblclick(function () {
+        //     console.log('hi', $(this))
+        //     $(this).closest('tr').css('background', 'white')
+
+        // })
 
     </script>
 </body>

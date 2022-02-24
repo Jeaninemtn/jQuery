@@ -8,6 +8,7 @@
     <title>Exercise-5</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
         integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         .wrap {
             width: 800px;
@@ -15,10 +16,12 @@
             margin: auto;
             overflow: hidden;
             position: relative;
+            
         }
 
         ul.train {
             width: 500%;
+            transition: 0.5s;
             /* transform: translateX(-800px); */
         }
 
@@ -36,7 +39,7 @@
         }
 
         .slider-dot li {
-            width: 50px;
+            width: 40px;
             height: 10px;
             border-radius: 25px;
             background-color: #ffffff8c;
@@ -48,6 +51,43 @@
         /* .slider-dot li:nth-child(1) {
             background-color: #fff;
         } */
+
+        .arrow-right {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            /* background-color: #000; */
+            width: 10%;
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            cursor: pointer;
+        }
+        .arrow-right i {
+            font-size: 1.6rem;
+            color: #ffffff8c;
+        }
+        .arrow-left {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            /* background-color: #000; */
+            width: 10%;
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            cursor: pointer;
+        }
+        .arrow-left i {
+            font-size: 1.6rem;
+            color: #ffffff8c;
+        }
     </style>
 
 </head>
@@ -68,6 +108,12 @@
             <li id="li4"></li>
             <li id="li5"></li>
         </ul>
+        <div class="arrow-right">
+            <i class="fa-solid fa-circle-arrow-right"></i>
+        </div>
+        <div class="arrow-left">
+            <i class="fa-solid fa-circle-arrow-left"></i>
+        </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -83,26 +129,49 @@
     <script>
 
         let num = 0;
+        let page = 0;
 
-        $('.slider-dot li').click(function () {
-            console.log('hi')
+        $('.slider-dot li').mouseenter(function () {
+            console.log('hello')
             $('.slider-dot li').css('background', '#ffffff8c')
 
         })
 
-        $('.slider-dot li').click(function () {
+        $('.slider-dot li').mouseenter(function () {
             console.log('hi', $(this))
             $(this).css('background', 'white')
 
         })
 
 
-        $('.slider-dot li').click(function () {
+        $('.slider-dot li').mouseenter(function () {
             // console.log($(this).index());
             num=$(this).index();
             console.log(num);
             $('.train').css('transform', `translateX(${num * -800}px)`)
         })
+
+        $('.arrow-right').click(function(){
+            page++;
+            console.log('page', page * -800);
+        
+           
+        })
+
+        // $('.arrow-left').click(function(){
+        //     num=$(this).index();
+        //     console.log(num);
+        //     $('.train').css('transform', `translateX(${num * 400}px)`)
+        // })
+
+
+
+
+
+
+
+
+
     </script>
 
 
