@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <style>
+        body {
+            box-sizing: border-box;
+        }
+        .container {
+            width: 600px;
+            height: 200px;
+            margin: 50px auto;
+            text-align: center;
+            background-color: rgb(250, 219, 219);
+            border-radius: 10px;
+            padding-top: 15px;
+        }
+
+        h1 {
+            background-color: rgb(255, 242, 242);
+            padding: 10px 35px;
+            text-align: right;
+            border-radius: 10px;
+        }
+        input {
+            margin-top: 10px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 id="result">0</h1>
+        <input type="text" id="x">
+        <input type="text" id="y">
+
+        <button id="addBtn">+</button>
+        <button id="minBtn">-</button>
+        <button id="mulBtn">*</button>
+        <button id="divBtn">/</button>
+    </div>
+
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    
+    <script>
+
+        function add(x, y) {
+            return x + y;
+        }
+
+        $('#addBtn').click(function(){
+            var myX = +$('#x').val();
+            var myY = +$('#y').val();
+            // equal to < var myY = Number($('#y').val()); >
+            // Bc h1 is a text that we need to make it as a number
+            var result = add(myX, myY);
+            $('#result').html(result);
+            // equal to < $('#result').text(result); >
+        })
+
+
+        function minus(x, y) {
+            return x - y;
+        }
+
+        $('#minBtn').click(function(){
+            var myX = +$('#x').val();
+            var myY = +$('#y').val();
+            var result = minus(myX, myY);
+            $('#result').html(result);
+        })
+
+
+        function multiple(x, y) {
+            return x * y;
+        }
+
+        $('#mulBtn').click(function(){
+            var myX = +$('#x').val();
+            var myY = +$('#y').val();
+            var result = multiple(myX, myY);
+            $('#result').html(result);
+        })
+
+        function divide(x, y) {
+            return x / y;
+        }
+
+        $('#divBtn').click(function(){
+            var myX = +$('#x').val();
+            var myY = +$('#y').val();
+            var result = divide(myX, myY);
+            $('#result').html(result);
+        })
+
+    </script>
+
+</body>
+
+</html>

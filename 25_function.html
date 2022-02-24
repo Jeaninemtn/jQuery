@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function</title>
+</head>
+
+<body>
+    <script>
+        (function (x, y) {
+            console.log('x+y', x + y)
+        })(1, 2);
+
+        // function add(x, y) {
+        //     return 'hello';
+        //     return x + y;
+        // }
+
+        function minus(x, y) {
+            return x - y;
+        }
+
+        var add = function (x, y) {
+            return x + y;
+        }
+
+
+        var result = add(3, 50);
+        console.log('result:', result);
+
+        var result2 = minus(40, 20);
+        console.log('result:', result2);
+
+        var myjQuery = {
+
+            'css': function (x, y) {
+                console.log('x:', x);
+                console.log('y:', y);
+
+                // 用 if 去判斷要執行什麼不同的功能
+                if (x) {
+                    console.log('要修改');
+                }
+                else {
+                    console.log('要拿值');
+                }
+            }
+
+        }
+    </script>
+</body>
+
+</html>
