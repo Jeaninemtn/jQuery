@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercise-5</title>
+    <title>Exercise-5-2</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
         integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -102,11 +102,11 @@
             <li><img src="./imgs/slide5.jpg" alt=""></li>
         </ul>
         <ul class="ul list-unstyled d-flex slider-dot">
-            <li id="li1"></li>
-            <li id="li2"></li>
-            <li id="li3"></li>
-            <li id="li4"></li>
-            <li id="li5"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
         </ul>
         <div class="arrow-right">
             <i class="fa-solid fa-circle-arrow-right"></i>
@@ -128,52 +128,34 @@
 
     <script>
 
-        let num = 0;
-        let page = 0;
-
-        $('.slider-dot li').mouseenter(function () {
-            console.log('hello')
-            $('.slider-dot li').css('background', '#ffffff8c')
-
-        })
-
-        $('.slider-dot li').mouseenter(function () {
-            console.log('hi', $(this))
-            $(this).css('background', 'white')
-
-        })
+        var page = 0;
 
 
         $('.slider-dot li').mouseenter(function () {
-            // console.log($(this).index());
-            num=$(this).index();
-            console.log(num);
-            $('.train').css('transform', `translateX(${num * -800}px)`)
+            page=$(this).index();
+            
+            pageUpdate()
         })
 
 
         $('.arrow-right').click(function(){
             page++;
-            console.log('page', page * -800);
-            $('.train').css('transform', `translateX(${page * -800}px)`)
-          
+
+            if (page >= 5) {
+                page=0
+            }
+
+            pageUpdate()
+            
         })
 
-        // $('.arrow-left').click(function(){
-        //     page++;
-        //     console.log('page', page * 800);
-        //     $('.train').css('transform', `translateX(${page * 800}px)`)
-        
-           
-        // })
+        function pageUpdate() {
+            $('.slider-dot li').eq(page).css('background', 'white').siblings().css('background', '#ffffff8c')
+            $('.train').css('transform', `translateX(${page * -800}px)`)
+        }
 
         
-
-
-
-
-
-
+        // Organize the codes
 
 
 
