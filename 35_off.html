@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>off</title>
+</head>
+<body>
+    <button id="btnHi">say hi</button>
+    <button id="on">on</button>
+    <button id="off">off</button>
+
+    <script src="/js/jquery-3.6.0.min.js"></script>
+
+    <script>
+
+        function sayHi() {
+            console.log('hi');
+
+            // 先做個模板，給個名字
+        }
+
+        $('#on').click(function(){
+            $('#btnHi').click(sayHi)
+        })
+
+        $('#off').click(function(){
+            $('#btnHi').off('click', sayHi)
+
+            // 一定要實名制，不能用匿名函式
+        })
+
+
+
+    </script>
+
+
+
+</body>
+</html>

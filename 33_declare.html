@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Declare</title>
+</head>
+
+<body>
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script>
+
+        // ES5 var 提升:宣告變數會被拉上去
+        // var x = 10;
+
+        // console.log('x', x);
+        // var x = 'abc';
+
+        // console.log('x after:', x);
+
+        // ES6 let, const 在宣告之前，無法使用，會出現 error
+        // 不能重複宣告，會跳出 error 提醒我們重複宣告了
+        // let y = '10';
+        // console.log('y', y);
+        // let y = 10;
+
+
+        // let, const
+
+        let x = 10;
+
+        x = 100;
+
+        console.log('x', x);
+
+        // CONST 不能重複賦值(不能重新等於一個新東西)
+        const myArray = ['a', 'b', 'c'];
+
+        console.log('myArray', myArray);
+        myArray.pop()
+        myArray.push('d')
+        console.log('myArray after push', myArray);
+
+
+    </script>
+</body>
+
+</html>

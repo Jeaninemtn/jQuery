@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise-8-1</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .wrap {
+            width: 800px;
+            height: 400px;
+            background-color: #CCC;
+            position: relative;
+            margin: auto;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: #afa;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="box"></div>
+    </div>
+    <div class="text-center">
+        <div>
+            <button id="up" class="btn btn-dark">
+                <i class="fa-solid fa-caret-up"></i>
+            </button>
+        </div>
+
+        <div>
+            <button id="left" class="btn btn-dark mx-3">
+                <i class="fa-solid fa-caret-left"></i>
+            </button>
+
+            <button id="right" class="btn btn-dark mx-3">
+                <i class="fa-solid fa-caret-right"></i>
+            </button>
+        </div>
+
+        <div>
+            <button id="down" class="btn btn-dark">
+                <i class="fa-solid fa-caret-down"></i>
+            </button>
+        </div>
+    </div>
+
+    <script src="./js/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $('#right').click(function () {
+            // console.log('hi right');
+            const boxLeft = $('.box').css('left');
+            console.log('hi right', boxLeft);
+
+            if (parseInt(boxLeft) < 700) {
+                $('.box').css('left', '+=100');
+            }
+
+        })
+
+
+        $('#left').click(function () {
+            // console.log('hi left');
+            const boxLeft = $('.box').css('left');
+            console.log('hi left', boxLeft);
+
+            if (parseInt(boxLeft) > 0) {
+                $('.box').css('left', '-=100')
+            }
+
+        })
+        $('#up').click(function(){
+            // console.log('hi up');
+            const boxTop = $('.box').css('top');
+            console.log('hi up', boxTop);
+
+            if (parseInt(boxTop) > 0) {
+                $('.box').css('top','-=100')
+            }
+
+        })
+
+        $('#down').click(function(){
+            // console.log('hi down');
+            const boxTop = $('.box').css('top');
+            console.log('hi down', boxTop);
+
+            if (parseInt(boxTop) < 300) {
+                $('.box').css('top','+=100')
+
+            }
+
+        })
+
+
+        $(document).on('keydown', function () {
+            console.log('event', event.which);
+
+            if (event.which === 39) {
+                console.log('right');
+                const boxLeft = $('.box').css('left');
+
+                if (parseInt(boxLeft) < 700) {
+                    $('.box').css('left', '+=100');
+                }
+            }
+
+        })
+
+        $(document).on('keydown', function () {
+            console.log('event', event.which);
+
+            if (event.which === 37) {
+                console.log('lefT');
+                const boxLeft = $('.box').css('left');
+
+                if (parseInt(boxLeft) > 0) {
+                    $('.box').css('left', '-=100');
+                }
+            }
+
+        })
+
+        $(document).on('keydown', function () {
+            console.log('event', event.which);
+
+            if (event.which === 38) {
+                console.log('up');
+                const boxTop = $('.box').css('top');
+
+                if (parseInt(boxTop) > 0) {
+                    $('.box').css('top', '-=100');
+                }
+            }
+
+        })
+
+        $(document).on('keydown', function () {
+            console.log('event', event.which);
+
+            if (event.which === 40) {
+                console.log('down');
+                const boxTop = $('.box').css('top');
+
+                if (parseInt(boxTop) < 300) {
+                    $('.box').css('top', '+=100');
+                }
+            }
+
+        })
+
+    </script>
+
+
+</body>
+
+</html>
