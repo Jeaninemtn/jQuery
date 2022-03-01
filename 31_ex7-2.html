@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise-7-1</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <style>
+        body {
+            margin: 0;
+            height: 300vh;
+            position: relative;
+            transition: 1s;
+        }
+
+        .wrap {
+            width: 100%;
+            height: 50px;
+            background-color: #eee;
+            position: sticky;
+            top: 0;
+        }
+
+        .bar {
+            /* width: 10%; */
+            height: 100%;
+            background-color: turquoise;
+            transition: 0.2s;
+        }
+
+        .container {
+            position: absolute;
+            top: 600px;
+            transform: translateY(300px);
+            opacity: 0;
+            transition: 1s;
+        }
+
+        .img-wrap img {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="bar"></div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-4">
+                <div class="myCard">
+                    <div class="img-wrap">
+                        <img src="https://cdn.pixabay.com/photo/2022/02/19/21/46/beach-7023446_960_720.jpg" alt="">
+                    </div>
+                    <p>Winter</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi vero sapiente quisquam vel natus
+                        at assumenda voluptatem, dolorum veritatis accusamus quia tempora eligendi doloribus hic, nulla
+                        minima, dicta quis eos?</p>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="myCard">
+                    <div class="img-wrap">
+                        <img src="https://cdn.pixabay.com/photo/2022/02/19/21/46/beach-7023446_960_720.jpg" alt="">
+                    </div>
+                    <p>Winter</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi vero sapiente quisquam vel natus
+                        at assumenda voluptatem, dolorum veritatis accusamus quia tempora eligendi doloribus hic, nulla
+                        minima, dicta quis eos?</p>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="myCard">
+                    <div class="img-wrap">
+                        <img src="https://cdn.pixabay.com/photo/2022/02/19/21/46/beach-7023446_960_720.jpg" alt="">
+                    </div>
+                    <p>Winter</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi vero sapiente quisquam vel natus
+                        at assumenda voluptatem, dolorum veritatis accusamus quia tempora eligendi doloribus hic, nulla
+                        minima, dicta quis eos?</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script>
+        $(window).scroll(function () {
+            console.log('scrolled top:', $(window).scrollTop());
+            console.log('window height:', $(window).height());
+            console.log('body height:', $('body').height());
+            const scrollPosition = $(window).scrollTop()
+            const windowHeight = $(window).height()
+            const bodyHeight = $('body').height()
+            console.log('percentage', `${Math.floor(scrollPosition / (bodyHeight - windowHeight) * 100)}%)`);
+
+            $('.bar').css('width', `${scrollPosition / (bodyHeight - windowHeight) * 100}%`)
+
+            if (scrollPosition > 300) {
+                $('body').css('background', 'lightblue')
+                $('.container').css('transform', 'translateY(0)').css('opacity', '1');
+            }
+            else {
+                $('body').css('background', '#fff')
+                $('.container').css('transform', 'translateY(200px)').css('opacity', '0');
+            }
+
+
+        })
+
+    </script>
+</body>
+
+</html>
