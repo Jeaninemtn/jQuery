@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise-9-1</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <style>
+
+        .container {
+            border: 1px solid #000;
+            border-radius: 25px;
+            box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.52);
+            text-align: justify;
+        }
+
+
+        .fontS {
+            font-size: 0.8rem;
+        }
+
+        .fontM {
+            font-size: 1rem;
+        }
+
+        .fontL {
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-3 pb-3">
+        <div class="d-flex justify-content-end">
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="button" id="btnS" class="btn btn-secondary">S</button>
+                <button type="button" id="btnM" class="btn btn-secondary active">M</button>
+                <button type="button" id="btnL" class="btn btn-secondary">L</button>
+            </div>
+        </div>
+
+        <h2>jQuery</h2>
+
+        <article>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae provident sit porro veniam esse, fuga ex
+                iure laudantium, inventore exercitationem iusto, culpa quasi? Voluptate veritatis voluptas officia
+                provident cumque voluptatum.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae provident sit porro veniam esse, fuga ex
+                iure laudantium, inventore exercitationem iusto, culpa quasi? Voluptate veritatis voluptas officia
+                provident cumque voluptatum.</p>
+        </article>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+
+    <script>
+        $('#btnS').click(function () {
+            console.log('hi btnS');
+            $('#btnS').addClass('active').siblings().removeClass('active')
+            $('article').removeClass('fontM fontL');
+            $('article').addClass('fontS')
+        })
+
+        $('#btnM').click(function () {
+            console.log('hi btnM');
+            $('#btnM').addClass('active').siblings().removeClass('active')
+            $('article').removeClass('fontS fontL');
+            $('article').addClass('fontM')
+        })
+
+        $('#btnL').click(function () {
+            console.log('hi btnL');
+            $('#btnL').addClass('active').siblings().removeClass('active')
+            $('article').removeClass('fontM fontS');
+            $('article').addClass('fontL')
+
+        })
+
+
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise-9-2</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <style>
+        .fontS {
+            font-size: 0.8rem;
+        }
+
+        .fontM {
+            font-size: 1rem;
+        }
+
+        .fontL {
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="d-flex justify-content-end">
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-secondary">S</button>
+                <button type="button" class="btn btn-secondary active">M</button>
+                <button type="button" class="btn btn-secondary">L</button>
+            </div>
+        </div>
+
+        <h2>jQuery</h2>
+
+        <article>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae provident sit porro veniam esse, fuga ex
+                iure laudantium, inventore exercitationem iusto, culpa quasi? Voluptate veritatis voluptas officia
+                provident cumque voluptatum.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae provident sit porro veniam esse, fuga ex
+                iure laudantium, inventore exercitationem iusto, culpa quasi? Voluptate veritatis voluptas officia
+                provident cumque voluptatum.</p>
+        </article>
+
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script>
+
+        // 所有的button都寫在同一個function裡的寫法
+
+        $('.btn').click(function () {
+            console.log('btn', $(this).is(":contains('S')"));
+            $(this).addClass('active').siblings().removeClass('active');
+            
+            if ($(this).is(":contains('S')")) {
+                $('p').removeClass('fontM fontL');
+                $('p').addClass('fontS');
+            }
+            if ($(this).is(":contains('M')")) {
+                $('p').removeClass('fontS fontL');
+                $('p').addClass('fontM');
+            }
+            if ($(this).is(":contains('L')")) {
+                $('p').removeClass('fontM fontS');
+                $('p').addClass('fontL');
+            }
+
+            // 老師的寫法～～～
+            // 老師沒有用id的寫法，用了is+contains
+            // 然後用if去判斷要做什麼事
+
+        })
+    </script>
+</body>
+
+</html>
