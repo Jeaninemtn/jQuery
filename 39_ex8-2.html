@@ -28,8 +28,10 @@
             top: 0;
             left: 0;
         }
+    
         i {
             font-size: 2rem;
+            color: rgb(140, 124, 223);
         }
     </style>
 
@@ -47,26 +49,37 @@
         </div>
 
         <div>
-            <button id="left" class="btn mx-4">
+            <button id="left" class="btn">
                 <i class="fa-solid fa-circle-chevron-left"></i>
             </button>
-
-            <button id="right" class="btn mx-4">
-                <i class="fa-solid fa-circle-chevron-right"></i>
-            </button>
-        </div>
-
-        <div>
             <button id="down" class="btn">
                 <i class="fa-solid fa-circle-chevron-down"></i>
             </button>
+
+            <button id="right" class="btn">
+                <i class="fa-solid fa-circle-chevron-right"></i>
+            </button>
+        
         </div>
     </div>
 
     <script src="./js/jquery-3.6.0.min.js"></script>
 
     <script>
+        $('#right').click(function(){
+            console.log('clicked right');
+            // $('.box').css('transform', 'translateX(100px)')
+            // It's a wrong way to do this 如果這樣子寫，只能點一次&位移一次
 
+            console.log('clicked right', $('.box').css('left') );
+            const moveX = $('.box').css('left');
+            if (parseInt(moveX) < 700) {
+                $('.box').css('left','+=100')
+            }
+            
+
+
+        })
         
 
     </script>
