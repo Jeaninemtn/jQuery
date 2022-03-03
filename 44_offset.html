@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>offset</title>
+    <style>
+        body {
+            margin: 0;
+            height: 1000vh;
+        }
+
+        .wrap {
+            width: 400px;
+            height: 400px;
+            background-color: rgb(231, 231, 231);
+            margin: 50px 100px;
+            padding: 50px;
+            position: relative;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: rgb(250, 235, 215);
+            position: absolute;
+            top: 1320px;
+
+            transform: translateX(-350px);
+            transition: .5s;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="box"></div>
+    </div>
+
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script>
+        // console.log('offset:', $('.wrap').offset());
+        // console.log('offset().top:', $('.wrap').offset().top);
+        // console.log('offset().left:', $('.wrap').offset().left);
+
+        // console.log('boxoffset:', $('.box').offset());
+        // console.log('boxoffset().top:', $('.box').offset().top);
+        // console.log('boxoffset().left:', $('.box').offset().left);
+
+        $(window).scroll(function(){
+            console.log('scrollTop', $(window).scrollTop());
+            console.log('scrollTop + height', $(window).scrollTop() + ($(window).height() * .5));
+            const triggerY = $(window).scrollTop() + ($(window).height() * .5);
+            if (triggerY >= $('.box').offset().top){
+                $('.box').css('transform', 'translateX(0)')
+            }
+            else {
+                $('.box').css('transform', 'translateX(-350px)')
+            }
+
+
+        })
+
+
+    </script>
+</body>
+
+</html>
