@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>scope</title>
+</head>
+
+<body>
+    <script>
+        // 有宣告，比沒宣告好
+        // 全域變數
+        var x = 10;
+
+        // console.log('x', x);
+
+        // var 用 function 來當作全域/區域變數區隔
+        // let & const 用 { } 來當作全域/區域變數區隔
+
+        function a() {
+            // 有區域變數的話，會以區域變數為主
+            // 沒有區域變數的話，才會往外找這個變數
+            x = 20;
+            console.log('x inside:', x);
+        }
+        a()
+
+        console.log('x outside', x);
+ 
+        // Java Script的執行順序 
+        // 寫在前面的東西如果出錯，後面的東西就不會執行
+
+
+    </script>
+</body>
+
+</html>
