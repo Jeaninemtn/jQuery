@@ -143,10 +143,10 @@
         $('.slider-dot li').mouseenter(function () {
             page = $(this).index();
 
-            pageUpdate()
+            pageUpdate();
         })
 
-        $('.arrow-right').click (moveRight) 
+        $('.arrow-right').click(moveRight) 
 
         function pageUpdate() {
             $('.slider-dot li').eq(page).css('background', 'white').siblings().css('background', '#ffffff8c')

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>prop</title>
+</head>
+<body>
+    <button id="addProp">add prop</button>
+    <button id="rmvProp">remove prop</button>
+    <button id="cheProp">check prop</button>
+    <input type="checkbox" checked>
+
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script>
+
+
+        $('input').click(function () {
+            console.log('attr checked:', $('input').attr('checked'));
+            console.log('prop checked:', $('input').prop('checked'));
+        
+            // attr: 讀取html上的屬性
+            // prop: 讀取/檢查物件現在的狀態(屬性)
+        
+            // $('input').prop('disabled', true)
+
+        })
+
+        $('#addProp').click(function(){
+            $('input').prop('myProp123', '666')
+        })
+
+        $('#rmvProp').click(function () {
+            // $('input').prop('myProp123', '');
+            $('input').removeProp('myProp123');
+        })
+
+        $('#cheProp').click(function () {
+            console.log($('input').prop('myProp123'));
+        })
+
+    </script>
+</body>
+</html>

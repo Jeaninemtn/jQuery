@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Before & After</title>
+</head>
+<body>
+    <button id="buttonAppend">click Append</button>
+    <button id="buttonPrepend">click Prepend</button>
+    <button id="buttonBefore">click Before</button>
+    <button id="buttonAfter">click After</button>
+    
+    <div class="container">
+        <div class="row">
+            <!-- before -->
+            <ul>
+                <!-- prepend -->
+                <li>item 1</li>
+                <li>item 2</li>
+                <!-- append -->
+            </ul>
+            <!-- After -->
+        </div>
+    </div>
+
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script>
+        let index = 0;
+        $('#buttonAppend').click(function () {
+            $("ul").append("<li>item Append</li>");
+        })
+        $('#buttonPrepend').click(function () {
+            $("ul").prepend("<li>item Prepend</li>");
+        })
+        $('#buttonBefore').click(function () {
+            $("ul").before("<li>item Before</li>");
+        })
+        $('#buttonAfter').click(function () {
+            $("ul").after("<li>item After</li>");
+        })
+
+    </script>
+</body>
+</html>
