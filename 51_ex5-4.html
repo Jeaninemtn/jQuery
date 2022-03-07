@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise-5-4</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .wrap {
+            width: 800px;
+            height: 500px;
+            margin: auto;
+            overflow: hidden;
+            position: relative;
+            
+        }
+
+        ul.train {
+            width: 600%;
+            transition: 0.5s;
+            /* transform: translateX(-800px); */
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .slider-dot {
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+            justify-content: center;
+        }
+
+        .slider-dot li {
+            width: 40px;
+            height: 10px;
+            border-radius: 25px;
+            background-color: #ffffff8c;
+            /* border: 1px solid #000; */
+            margin: 0 6px 0;
+
+        }
+
+        /* .slider-dot li:nth-child(1) {
+            background-color: #fff;
+        } */
+
+        .arrow-right {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            /* background-color: #000; */
+            width: 10%;
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            cursor: pointer;
+        }
+        .arrow-right i {
+            font-size: 1.6rem;
+            color: #ffffff8c;
+        }
+        .arrow-left {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            /* background-color: #000; */
+            width: 10%;
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            cursor: pointer;
+        }
+        .arrow-left i {
+            font-size: 1.6rem;
+            color: #ffffff8c;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="wrap">
+        <ul class="ul list-unstyled d-flex train">
+            <li><img src="./imgs/slide1.jpg" alt=""></li>
+            <li><img src="./imgs/slide2.jpg" alt=""></li>
+            <li><img src="./imgs/slide3.jpg" alt=""></li>
+            <li><img src="./imgs/slide4.jpg" alt=""></li>
+            <li><img src="./imgs/slide5.jpg" alt=""></li>
+            <li><img src="./imgs/slide1.jpg" alt=""></li>
+
+            <!-- 多放一張假圖 -->
+
+        </ul>
+        <ul class="ul list-unstyled d-flex slider-dot">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <div class="arrow-right">
+            <i class="fa-solid fa-circle-arrow-right"></i>
+        </div>
+        <div class="arrow-left">
+            <i class="fa-solid fa-circle-arrow-left"></i>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+
+    <script>
+
+        var page = 0;
+
+
+        $('.slider-dot li').mouseenter(function () {
+            page=$(this).index();
+            
+            pageUpdate()
+        })
+
+        $('.arrow-right').click(function(){
+            page++;
+            pageUpdate()
+            if (page >= 5)  {
+                $('ul.train').one('transitionend', function () {
+                    console.log('hi');
+                    page = 0
+                    pageUpdateWithoutTransition();
+                })
+            }
+        })
+
+        function pageUpdate() {
+            $('.slider-dot li').eq(page).css('background', 'white').siblings().css('background', '#ffffff8c')
+            $('.train').css('transform', `translateX(${page * -800}px)`)
+        }
+
+        function pageUpdateWithoutTransition() {
+            $('.slider-dot li').eq(page).css('background', '#fff').siblings().css('background', '#ffffff8c')
+            $('ul.train').css('transition', 'none').css('transform', `translateX(${page * -800}px)`)
+        }
+
+    
+        // 無限輪播
+
+
+    </script>
+
+
+
+</body>
+
+</html>
