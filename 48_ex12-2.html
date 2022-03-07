@@ -79,20 +79,20 @@
   <script>
 
     let lastScroll = 0;
+    
 
     $(window).scroll(function () {
       console.log('scrollTop', $(window).scrollTop());
       let nowScroll = $(window).scrollTop();
 
       if ($(window).scrollTop() <= 3000) {
+        
         $('nav').removeClass('hidden');
       }
-
       else {
         if (lastScroll < nowScroll) {
           $('nav').addClass('hidden');
         }
-
         else {
           $('nav').removeClass('hidden');
         }
