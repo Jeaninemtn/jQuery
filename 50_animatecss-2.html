@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animate CSS</title>
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</head>
+<body>
+    <button id="bounce" class="animateBtn" data-ani-name="bounce">bounce</button>
+    <button id="shakeX" class="animateBtn" data-ani-name="shakeX">shakeX</button>
+    <h1 class="animate__animated">An animated element</h1>
+
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script>
+        $('.animateBtn').click(function () {
+            console.log('hi', $(this).text());
+            console.log('data-aniName', $(this).data('ani-name'));
+            const animateName = $(this).text();
+
+            $("h1").addClass(`animate__${animateName}`).one('animationend', function () {
+                console.log('animationend');
+                $(this).removeClass(`animate__${animateName}`);
+            })
+
+            // 老師補充的寫法
+
+        })
+    </script>
+</body>
+</html>

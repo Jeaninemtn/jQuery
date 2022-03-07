@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animate CSS</title>
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</head>
+<body>
+    <button id="bounce">bounce</button>
+    <h1 class="animate__animated">An animated element</h1>
+
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script>
+        
+        $('#bounce').click(function(){
+            console.log('hi', $(this).text());
+           
+            // $('h1').addClass('animate__bounce');
+            // $('h1').removeClass('animate__bounce')
+
+            // 上面的寫法會直接無效，因為程式跑的速度太快，還沒add就被remove了 
+
+            // $('h1').toggleClass('animate__bounce');
+            
+            // toggle的效果也不是我們要的
+
+            $('h1').addClass('animate__bounce').one('animationend',function(){
+                console.log('animationend');
+                $(this).removeClass('animate__bounce');
+            });
+
+            // 這個才能無限點擊，才是我們要的效果 0  .  0
+
+
+        })
+    </script>
+</body>
+</html>

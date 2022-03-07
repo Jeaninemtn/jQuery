@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html text</title>
+    <style>
+        span {
+            color: teal;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="getText">get text</button>
+    <button id="getHtml">get html</button>
+    <button id="getHtmlwriteText">get html</button>
+
+    <h1 id="sample">Hello <span>World</span> </h1>
+    <h1 id="result"></h1>
+
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script>
+
+        $('#getText').click(function(){
+            const value = $('#sample').text();
+            $('#result').text(value)
+        })
+
+        $('#getHtml').click(function(){
+            const value = $('#sample').html();
+            $('#result').html(value)
+        })
+
+        // html()會改變#result的架構，要小心使用
+
+        $('#getHtmlwriteText').click(function(){
+            const value = $('#sample').html();
+            $('#result').text(value)
+        })
+
+        // See the difference
+
+    </script>
+
+
+
+</body>
+
+</html>
