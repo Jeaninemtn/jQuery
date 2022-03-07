@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercise-5-3</title>
+    <title>Exercise-5-4</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
         integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -20,7 +20,7 @@
         }
 
         ul.train {
-            width: 500%;
+            width: 600%;
             transition: 0.5s;
             /* transform: translateX(-800px); */
         }
@@ -100,6 +100,10 @@
             <li><img src="./imgs/slide3.jpg" alt=""></li>
             <li><img src="./imgs/slide4.jpg" alt=""></li>
             <li><img src="./imgs/slide5.jpg" alt=""></li>
+            <li><img src="./imgs/slide1.jpg" alt=""></li>
+
+            <!-- 多放一張假圖 -->
+
         </ul>
         <ul class="ul list-unstyled d-flex slider-dot">
             <li></li>
@@ -132,21 +136,21 @@
 
 
         $('.slider-dot li').mouseenter(function () {
-            page=$(this).index();
+            page = $(this).index();
             
-            pageUpdate()
+            pageUpdate();
         })
-
 
         $('.arrow-right').click(function(){
             page++;
-
-            if (page >= 5) {
-                page=0
-            }
-
             pageUpdate()
-            
+            if (page >= 5)  {
+                $('ul.train').one('transitionend', function () {
+                    console.log('hi');
+                    page = 0
+                    pageUpdateWithoutTransition();
+                })
+            }
         })
 
         function pageUpdate() {
@@ -154,9 +158,13 @@
             $('.train').css('transform', `translateX(${page * -800}px)`)
         }
 
-        
-        // Organize the codes
+        function pageUpdateWithoutTransition() {
+            $('.slider-dot li').eq(page).css('background', '#fff').siblings().css('background', '#ffffff8c')
+            $('ul.train').css('transition', 'none').css('transform', `translateX(${page * -800}px)`)
+        }
 
+    
+        // 無限輪播
 
 
     </script>

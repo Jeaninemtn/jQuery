@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercise-1</title>
+    <title>Exercise-1-1</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
         integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
@@ -54,26 +54,22 @@
 
     <script>
 
-    
         $('input[type="checkbox"]').click(function () {
-            console.log('hi')
-            $('input[type="checkbox"]').closest('tr').css('background', 'white')
+            console.log('hi', $(this));
+
+            // $('tr').css('background', 'transparent');
+            // $('input:checked').closest('tr').css('background', 'lightblue');
+
+            if ($(this).prop('checked')) {
+                $(this).closest('tr').css('background', 'lightblue');
+            }
+            else {
+                $(this).closest('tr').css('background', 'transparent');
+            }
 
         })
 
-        $('input[type="checkbox"]').click(function () {
-            console.log('hello', $(this))
-            $(this).closest('tr').css('background', 'lightblue')
-            // $(this).parent().parent().css('background', 'lightblue')
-        })
-
-        
-
-        // $('input[type="checkbox"]').dblclick(function () {
-        //     console.log('hi', $(this))
-        //     $(this).closest('tr').css('background', 'white')
-
-        // })
+        // 用if/else去判斷
 
     </script>
 </body>

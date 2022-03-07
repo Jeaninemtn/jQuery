@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>detach</title>
+</head>
+
+<body>
+    <button class="btn btn-info">detach</button>
+    <div class="container">
+        <div class="row flex-column">
+            <div class="hello">Hello World</div>
+            <div class="hello hello1">Hello World1</div>
+            <div class="hello2">Hello World2</div>
+        </div>
+    </div>
+
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script>
+
+        let isDetached = false;
+        
+        // isDetached: 有被剪過ㄇ +false = 沒有
+        
+        let myContent = null;
+        let index = 0;
+
+        $(".btn").click(function () {
+            index++;
+
+            if (isDetached) {
+                // isDetached = false;
+                // 如果沒被剪過
+                $('.row').append(myContent);
+            }
+            else {
+                // isDetached = true;
+                // 如果被剪過
+                myContent = $(".row div").detach();
+            }
+
+            isDetached = !isDetached;
+
+            // pro的都醬子寫
+
+            // 相反的意思(?)
+
+        });
+
+    </script>
+
+</body>
+
+</html>

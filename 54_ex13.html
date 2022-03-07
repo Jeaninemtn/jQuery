@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise-13</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <style>
+
+        .img-demo {
+            height: 400px;
+        }
+
+        .img-demo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .img-wrap img {
+            width: 100%;
+        }
+
+
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="img-demo">
+                    <img src="./imgs/product1.jpg" alt="">
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="img-row d-flex">
+                    <div class="img-wrap">
+                        <img src="./imgs/product1.jpg" alt="">
+                    </div>
+                    <div class="img-wrap">
+                        <img src="./imgs/product2.jpg" alt="">
+                    </div>
+                    <div class="img-wrap">
+                        <img src="./imgs/product3.jpg" alt="">
+                    </div>
+                    <div class="img-wrap">
+                        <img src="./imgs/product4.jpg" alt="">
+                    </div>
+                    <div class="img-wrap">
+                        <img src="./imgs/product5.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script>
+
+        $('.img-wrap img').click(function(){
+            console.log('img src:', $(this).attr('src'));
+            const thisImg = $(this).attr('src')
+            $('.img-demo img').attr('src', thisImg)
+        })
+
+    </script>
+</body>
+</html>

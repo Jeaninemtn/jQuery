@@ -5,10 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercise-5-3</title>
+    <title>Exercise-5-6</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
         integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         .wrap {
             width: 800px;
@@ -16,11 +18,11 @@
             margin: auto;
             overflow: hidden;
             position: relative;
-            
+
         }
 
         ul.train {
-            width: 500%;
+            width: 600%;
             transition: 0.5s;
             /* transform: translateX(-800px); */
         }
@@ -59,17 +61,19 @@
             bottom: 0;
             /* background-color: #000; */
             width: 10%;
-            
+
             display: flex;
             justify-content: center;
             align-items: center;
 
             cursor: pointer;
         }
+
         .arrow-right i {
             font-size: 1.6rem;
             color: #ffffff8c;
         }
+
         .arrow-left {
             position: absolute;
             top: 0;
@@ -77,13 +81,14 @@
             bottom: 0;
             /* background-color: #000; */
             width: 10%;
-            
+
             display: flex;
             justify-content: center;
             align-items: center;
 
             cursor: pointer;
         }
+
         .arrow-left i {
             font-size: 1.6rem;
             color: #ffffff8c;
@@ -100,6 +105,10 @@
             <li><img src="./imgs/slide3.jpg" alt=""></li>
             <li><img src="./imgs/slide4.jpg" alt=""></li>
             <li><img src="./imgs/slide5.jpg" alt=""></li>
+            <li><img src="./imgs/slide1.jpg" alt=""></li>
+
+            <!-- 多放一張假圖 -->
+
         </ul>
         <ul class="ul list-unstyled d-flex slider-dot">
             <li></li>
@@ -132,31 +141,53 @@
 
 
         $('.slider-dot li').mouseenter(function () {
-            page=$(this).index();
-            
-            pageUpdate()
+            page = $(this).index();
+
+            pageUpdate();
         })
 
-
-        $('.arrow-right').click(function(){
-            page++;
-
-            if (page >= 5) {
-                page=0
-            }
-
-            pageUpdate()
-            
-        })
+        $('.arrow-right').click(moveRight) 
 
         function pageUpdate() {
             $('.slider-dot li').eq(page).css('background', 'white').siblings().css('background', '#ffffff8c')
             $('.train').css('transform', `translateX(${page * -800}px)`)
         }
 
-        
-        // Organize the codes
+        function pageUpdateWithoutTransition() {
+            $('.slider-dot li').eq(page).css('background', '#fff').siblings().css('background', '#ffffff8c')
+            $('.train').css('transition', 'none').css('transform', `translateX(${page * -800}px)`)
+        }
 
+        function moveRight() {
+            page++
+            pageUpdate();
+            if (page >= 5) {
+                $('.train').one('transitionend', function () {
+                    console.log('hi');
+                    page = 0
+                    pageUpdateWithoutTransition();
+                })
+            }
+            console.log('page', page);
+        }
+
+
+        let myInterval = null;
+
+        function startInterval() {
+            myInterval = setInterval(moveRight, 1000);
+        }
+
+        startInterval();
+
+        $('.wrap').mouseenter(function () {
+            clearInterval(myInterval)
+        })
+        $('.wrap').mouseleave(function () {
+            startInterval()
+        })
+
+        // 無限自動輪播 + 滑鼠進停止出繼續
 
 
     </script>
