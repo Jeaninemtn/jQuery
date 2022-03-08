@@ -26,6 +26,10 @@
 </head>
 
 <body>
+    <button id="btnWrap">wrap</button>
+    <button id="btnUnwrap">unwrap</button>
+    <button id="btnWrapAll">wrap all</button>
+
     <div class="container">
         <div class="row">
             <img src="./imgs/person1.jpg" alt="">
@@ -36,7 +40,23 @@
 
     <script src="./js/jquery-3.6.0.min.js"></script>
     <script>
-        $("img").wrap("<div class='img-wrap'></div>");
+
+        $('#btnWrap').click(function(){
+            console.log('hi wrap');
+            $("img").wrap("<div class='img-wrap'></div>");
+        })
+
+        $('#btnUnwrap').click(function(){
+            console.log('hi unwrap');
+            $("img").wrap("<div class='img-wrap'></div>");
+            $("img").unwrap();
+        })
+
+        $('#btnWrapAll').click(function(){
+            console.log('hi unwrap');
+            $("img").wrapAll("<div class='img-wrap'></div>");
+        })
+
     </script>
 </body>
 
