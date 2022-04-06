@@ -22,10 +22,13 @@
         $('ul.first')
             .find('.a1')
             .css('background','pink')
-            .end()
-            .next()
+            .end()    // 回到 ul.first
+            .next()   // ul.first的下一個 = ul.second
             .find('.b2')
             .css('background','pink')
+
+        // end(): 回到上一個選取狀態
+
     </script>
 </body>
 
