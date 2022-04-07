@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>ajax</title>
+        <style>
+            .name {
+                color: red;
+            }
+
+            .age {
+                color: blue;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="root">
+            <!-- <div class="person">
+                <div class="name">Alex</div>
+                <div class="age">18</div>
+                <div class="job">student</div>
+            </div> -->
+        </div>
+
+        <script>
+            const root = document.querySelector("#root");
+            fetch("./53.data.json")
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (myJson) {
+                    console.log(myJson);
+                    let html = "";
+                    for (let i = 0; i < myJson.length; i++) {
+                        // console.log(myJson[i].name);
+                        // console.log(myJson[i].job);
+                        // console.log(myJson[i].age);
+
+                        html += `<div class="person">
+                            <div class="name">${myJson[i].name}</div>
+                            <div class="age">${myJson[i].age}</div>
+                            <div class="job">${myJson[i].job}</div>
+                        </div>`;
+
+                        console.log("html", html);
+                        root.innerHTML = html;
+                    }
+                });
+        </script>
+    </body>
+</html>
